@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { TodoService } from "../TodoService";
 import type { TodoRepositoryPort } from "../../ports/out/TodoRepositoryPort";
-import type { Todo, CreateTodoDTO, ToggleTodoDTO } from "../../../../domain/Todo";
+import type { Todo, CreateTodoDTO, ToggleTodoDTO } from "../../../domain/Todo";
 
 describe("TodoService", () => {
   let mockRepository: TodoRepositoryPort;

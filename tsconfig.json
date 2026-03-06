@@ -1,0 +1,3 @@
+{
+  "extends": "@bee-ddd/config/tsconfig.base.json"
+}

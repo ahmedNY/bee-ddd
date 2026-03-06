@@ -1,0 +1,24 @@
+{
+  "name": "@bee-ddd/auth",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@bee-ddd/db": "workspace:*",
+    "@bee-ddd/env": "workspace:*",
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@bee-ddd/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}

@@ -9,7 +9,10 @@
       "default": "./src/*.ts"
     }
   },
-  "scripts": {},
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
   "dependencies": {
     "@bee-ddd/auth": "workspace:*",
     "@bee-ddd/db": "workspace:*",
@@ -27,6 +30,7 @@
   "devDependencies": {
     "@bee-ddd/config": "workspace:*",
     "hono": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vitest": "^3.0.0"
   }
 }

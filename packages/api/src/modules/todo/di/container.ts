@@ -8,9 +8,7 @@ import type { TodoUseCase } from "../application/ports/in/TodoUseCase";
 
 const container = new Container();
 
-container
-  .bind<TodoRepositoryPort>(TYPES.TodoRepositoryPort)
-  .to(DrizzleTodoRepository);
+container.bind<TodoRepositoryPort>(TYPES.TodoRepositoryPort).to(DrizzleTodoRepository);
 container.bind<TodoUseCase>(TYPES.TodoUseCase).to(TodoService);
 
 export { container };

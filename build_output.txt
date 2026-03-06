@@ -1,0 +1,34 @@
+
+> web@0.1.0 build C:\Users\ahmed\projects\tests\bee-ddd\apps\web
+> next build
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\ahmed\projects\tests\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\ahmed\projects\tests\bee-ddd\pnpm-lock.yaml
+
+▲ Next.js 16.1.6 (Turbopack)
+- Environments: .env
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.2s
+  Running TypeScript ...
+Failed to compile.
+
+../../packages/api/src/modules/todo/application/TodoService.ts:9:4
+Type error: Unable to resolve signature of property decorator when called as an expression.
+  Argument of type 'undefined' is not assignable to parameter of type 'Object'.
+
+[0m [90m  7 |[39m [33m@[39minjectable()
+ [90m  8 |[39m [36mexport[39m [36mclass[39m [33mTodoService[39m {
+[31m[1m>[22m[39m[90m  9 |[39m   [33m@[39minject([33mTYPES[39m[33m.[39m[33mTodoRepository[39m)
+ [90m    |[39m    [31m[1m^[22m[39m
+ [90m 10 |[39m   [36mprivate[39m readonly todoRepository[33m![39m[33m:[39m [33mITodoRepository[39m[33m;[39m
+ [90m 11 |[39m
+ [90m 12 |[39m   [36mpublic[39m [36masync[39m getAllTodos()[33m:[39m [33mPromise[39m[33m<[39m[33mTodo[39m[][33m>[39m {[0m
+Next.js build worker exited with code: 1 and signal: null
+C:\Users\ahmed\projects\tests\bee-ddd\apps\web:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  web@0.1.0 build: `next build`
+Exit status 1

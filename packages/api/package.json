@@ -20,6 +20,8 @@
     "@orpc/zod": "catalog:",
     "dotenv": "catalog:",
     "drizzle-orm": "catalog:",
+    "inversify": "^7.11.0",
+    "reflect-metadata": "^0.2.2",
     "zod": "catalog:"
   },
   "devDependencies": {

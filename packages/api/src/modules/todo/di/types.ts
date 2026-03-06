@@ -1,4 +1,4 @@
 export const TYPES = {
-  TodoRepository: Symbol.for("TodoRepository"),
-  TodoService: Symbol.for("TodoService"),
+  TodoRepositoryPort: Symbol.for("TodoRepositoryPort"),
+  TodoUseCase: Symbol.for("TodoUseCase"),
 };

@@ -1,13 +1,16 @@
 import "reflect-metadata";
 import { Container } from "inversify";
 import { TYPES } from "./types";
-import type { ITodoRepository } from "../domain/ITodoRepository";
-import { DrizzleTodoRepository } from "../infrastructure/DrizzleTodoRepository";
-import { TodoService } from "../application/TodoService";
+import type { TodoRepositoryPort } from "../application/ports/out/TodoRepositoryPort";
+import { DrizzleTodoRepository } from "../infrastructure/adapters/out/persistence/DrizzleTodoRepository";
+import { TodoService } from "../application/use-cases/TodoService";
+import type { TodoUseCase } from "../application/ports/in/TodoUseCase";
 
 const container = new Container();
 
-container.bind<ITodoRepository>(TYPES.TodoRepository).to(DrizzleTodoRepository);
-container.bind<TodoService>(TYPES.TodoService).to(TodoService);
+container
+  .bind<TodoRepositoryPort>(TYPES.TodoRepositoryPort)
+  .to(DrizzleTodoRepository);
+container.bind<TodoUseCase>(TYPES.TodoUseCase).to(TodoService);
 
 export { container };

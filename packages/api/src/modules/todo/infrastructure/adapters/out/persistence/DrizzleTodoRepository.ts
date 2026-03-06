@@ -3,11 +3,15 @@ import { injectable } from "inversify";
 import { db } from "@bee-ddd/db";
 import { todo } from "@bee-ddd/db/schema/todo";
 import { eq } from "drizzle-orm";
-import type { ITodoRepository } from "../domain/ITodoRepository";
-import type { Todo, CreateTodoDTO, ToggleTodoDTO } from "../domain/Todo";
+import type { TodoRepositoryPort } from "../../../../application/ports/out/TodoRepositoryPort";
+import type {
+  Todo,
+  CreateTodoDTO,
+  ToggleTodoDTO,
+} from "../../../../domain/Todo";
 
 @injectable()
-export class DrizzleTodoRepository implements ITodoRepository {
+export class DrizzleTodoRepository implements TodoRepositoryPort {
   public async findAll(): Promise<Todo[]> {
     return await db.select().from(todo);
   }

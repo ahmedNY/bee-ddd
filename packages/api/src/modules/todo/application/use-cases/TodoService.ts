@@ -1,14 +1,15 @@
 import "reflect-metadata";
 import { inject, injectable } from "inversify";
-import type { ITodoRepository } from "../domain/ITodoRepository";
-import type { Todo, CreateTodoDTO, ToggleTodoDTO } from "../domain/Todo";
-import { TYPES } from "../di/types";
+import type { TodoRepositoryPort } from "../ports/out/TodoRepositoryPort";
+import type { Todo, CreateTodoDTO, ToggleTodoDTO } from "../../domain/Todo";
+import { TYPES } from "../../di/types";
+import type { TodoUseCase } from "../ports/in/TodoUseCase";
 
 @injectable()
-export class TodoService {
+export class TodoService implements TodoUseCase {
   constructor(
-    @inject(TYPES.TodoRepository)
-    private readonly todoRepository: ITodoRepository,
+    @inject(TYPES.TodoRepositoryPort)
+    private readonly todoRepository: TodoRepositoryPort,
   ) {}
 
   public async getAllTodos(): Promise<Todo[]> {

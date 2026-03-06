@@ -1,6 +1,6 @@
-import type { Todo, CreateTodoDTO, ToggleTodoDTO } from "./Todo";
+import type { Todo, CreateTodoDTO, ToggleTodoDTO } from "../../../domain/Todo";
 
-export interface ITodoRepository {
+export interface TodoRepositoryPort {
   findAll(): Promise<Todo[]>;
   create(data: CreateTodoDTO): Promise<void>;
   toggle(data: ToggleTodoDTO): Promise<void>;

@@ -3,25 +3,25 @@ import z from "zod";
 import { publicProcedure } from "../index";
 import { container } from "../modules/todo/di/container";
 import { TYPES } from "../modules/todo/di/types";
-import type { TodoService } from "../modules/todo/application/TodoService";
+import type { TodoUseCase } from "../modules/todo/application/ports/in/TodoUseCase";
 
-const todoService = container.get<TodoService>(TYPES.TodoService);
+const todoUseCase = container.get<TodoUseCase>(TYPES.TodoUseCase);
 
 export const todoRouter = {
   getAll: publicProcedure.handler(async () => {
-    return await todoService.getAllTodos();
+    return await todoUseCase.getAllTodos();
   }),
 
   create: publicProcedure
     .input(z.object({ text: z.string().min(1) }))
     .handler(async ({ input }) => {
-      return await todoService.createTodo({ text: input.text });
+      return await todoUseCase.createTodo({ text: input.text });
     }),
 
   toggle: publicProcedure
     .input(z.object({ id: z.number(), completed: z.boolean() }))
     .handler(async ({ input }) => {
-      return await todoService.toggleTodo({
+      return await todoUseCase.toggleTodo({
         id: input.id,
         completed: input.completed,
       });
@@ -30,6 +30,6 @@ export const todoRouter = {
   delete: publicProcedure
     .input(z.object({ id: z.number() }))
     .handler(async ({ input }) => {
-      return await todoService.deleteTodo(input.id);
+      return await todoUseCase.deleteTodo(input.id);
     }),
 };
